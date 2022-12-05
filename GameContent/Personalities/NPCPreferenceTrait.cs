@@ -1,0 +1,35 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: Terraria.GameContent.Personalities.NPCPreferenceTrait
+// Assembly: Terraria, Version=1.4.4.9, Culture=neutral, PublicKeyToken=null
+// MVID: CD1A926A-5330-4A76-ABC1-173FBEBCC76B
+// Assembly location: D:\SteamLibrary\steamapps\common\Terraria\Terraria.exe
+
+namespace Terraria.GameContent.Personalities
+{
+  public class NPCPreferenceTrait : IShopPersonalityTrait
+  {
+    public AffectionLevel Level;
+    public int NpcId;
+
+    public void ModifyShopPrice(HelperInfo info, ShopHelper shopHelperInstance)
+    {
+      if (!info.nearbyNPCsByType[this.NpcId])
+        return;
+      switch (this.Level)
+      {
+        case AffectionLevel.Hate:
+          shopHelperInstance.HateNPC(this.NpcId);
+          break;
+        case AffectionLevel.Dislike:
+          shopHelperInstance.DislikeNPC(this.NpcId);
+          break;
+        case AffectionLevel.Like:
+          shopHelperInstance.LikeNPC(this.NpcId);
+          break;
+        case AffectionLevel.Love:
+          shopHelperInstance.LoveNPC(this.NpcId);
+          break;
+      }
+    }
+  }
+}

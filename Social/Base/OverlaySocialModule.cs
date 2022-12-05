@@ -1,0 +1,26 @@
+﻿// Decompiled with JetBrains decompiler
+// Type: Terraria.Social.Base.OverlaySocialModule
+// Assembly: Terraria, Version=1.4.4.9, Culture=neutral, PublicKeyToken=null
+// MVID: CD1A926A-5330-4A76-ABC1-173FBEBCC76B
+// Assembly location: D:\SteamLibrary\steamapps\common\Terraria\Terraria.exe
+
+namespace Terraria.Social.Base
+{
+  public abstract class OverlaySocialModule : ISocialModule
+  {
+    public abstract void Initialize();
+
+    public abstract void Shutdown();
+
+    public abstract bool IsGamepadTextInputActive();
+
+    public abstract bool ShowGamepadTextInput(
+      string description,
+      uint maxLength,
+      bool multiLine = false,
+      string existingText = "",
+      bool password = false);
+
+    public abstract string GetGamepadText();
+  }
+}
